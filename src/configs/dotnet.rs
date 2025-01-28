@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct DotnetConfig<'a> {
     pub format: &'a str,
@@ -14,7 +19,7 @@ pub struct DotnetConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for DotnetConfig<'a> {
+impl Default for DotnetConfig<'_> {
     fn default() -> Self {
         DotnetConfig {
             format: "via [$symbol($version )(🎯 $tfm )]($style)",

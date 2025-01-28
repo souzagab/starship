@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct CmdDurationConfig<'a> {
     pub min_time: i64,
@@ -15,7 +20,7 @@ pub struct CmdDurationConfig<'a> {
     pub notification_timeout: Option<u32>,
 }
 
-impl<'a> Default for CmdDurationConfig<'a> {
+impl Default for CmdDurationConfig<'_> {
     fn default() -> Self {
         CmdDurationConfig {
             min_time: 2_000,

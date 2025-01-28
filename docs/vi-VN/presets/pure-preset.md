@@ -1,4 +1,4 @@
-[Return to Presets](./README.md#pure)
+[Return to Presets](./#pure)
 
 # Pure Preset
 
@@ -8,6 +8,10 @@ This preset emulates the look and behavior of [Pure](https://github.com/sindreso
 
 ### Cấu hình
 
-[Click to download TOML](/presets/toml/pure-preset.toml)
+```sh
+starship preset pure-preset -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/pure-preset.toml
+[Click to download TOML](/presets/toml/pure-preset.toml){download}
+
+<<< @/public/presets/toml/pure-preset.toml

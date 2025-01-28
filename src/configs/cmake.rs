@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct CMakeConfig<'a> {
     pub format: &'a str,
@@ -13,7 +18,7 @@ pub struct CMakeConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for CMakeConfig<'a> {
+impl Default for CMakeConfig<'_> {
     fn default() -> Self {
         CMakeConfig {
             format: "via [$symbol($version )]($style)",

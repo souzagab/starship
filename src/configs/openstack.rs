@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct OspConfig<'a> {
     pub format: &'a str,
@@ -9,7 +14,7 @@ pub struct OspConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for OspConfig<'a> {
+impl Default for OspConfig<'_> {
     fn default() -> Self {
         OspConfig {
             format: "on [$symbol$cloud(\\($project\\))]($style) ",

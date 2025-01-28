@@ -1,11 +1,11 @@
-# Advanced Installation
+# Instalación avanzada
 
 Para instalar Starship, necesitas hacer dos cosas:
 
 1. Consigue el binario de **Starship** en tu ordenador
 1. Decirle a tu intérprete de comandos que use el binario de Starship como su prompt modificando sus guiones de inicio
 
-Para la mayoría de los usuarios, las instrucciones en [la página principal](/guide/#🚀-installation) funcionarán genial. Sin embargo, para algunas plataformas más especializadas, se necesitan diferentes instrucciones.
+Para la mayoría de los usuarios, las instrucciones en [la página principal](../guide/#🚀-installation) funcionarán genial. Sin embargo, para algunas plataformas más especializadas, se necesitan diferentes instrucciones.
 
 Hay tantas plataformas ahí fuera que no cabían en el README.md principal, así que aquí están algunas instrucciones de instalación para otras plataformas de la comunidad. ¿No está usted aquí? ¡Por favor, añádelo aquí si lo encuentras!
 
@@ -45,7 +45,7 @@ En Funtoo Linux, Starship puede instalarse desde [core-kit](https://github.com/f
 emerge app-shells/starship
 ```
 
-## [Nix](https://nixos.wiki/wiki/Nix)
+## [Nix](https://wiki.nixos.org/wiki/Nix)
 
 ### Obtener el binario
 
@@ -63,7 +63,7 @@ Activa el módulo `programs.starship` en tu archivo `home.nix` y añade tus ajus
 {
   programs.starship = {
     enable = true;
-    # Configuration written to ~/.config/starship.toml
+    # Configuración escrita en ~/.config/starship.toml
     settings = {
       # add_newline = false;
 

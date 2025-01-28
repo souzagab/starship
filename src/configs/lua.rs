@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct LuaConfig<'a> {
     pub format: &'a str,
@@ -14,7 +19,7 @@ pub struct LuaConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for LuaConfig<'a> {
+impl Default for LuaConfig<'_> {
     fn default() -> Self {
         LuaConfig {
             format: "via [$symbol($version )]($style)",

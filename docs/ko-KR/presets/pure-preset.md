@@ -1,13 +1,17 @@
-[Return to Presets](./README.md#pure)
+[프리셋으로 돌아가기](./#pure)
 
-# Pure Preset
+# Pure 프리셋
 
-This preset emulates the look and behavior of [Pure](https://github.com/sindresorhus/pure).
+이 프리셋은 [Pure](https://github.com/sindresorhus/pure)의 모습과 동작을 재현합니다.
 
-![Screenshot of Pure preset](/presets/img/pure-preset.png)
+![Pure 프리셋 스크린샷](/presets/img/pure-preset.png)
 
-### Configuration
+### 설정
 
-[Click to download TOML](/presets/toml/pure-preset.toml)
+```sh
+starship preset pure-preset -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/pure-preset.toml
+[클릭하여 TOML 다운로드](/presets/toml/pure-preset.toml)
+
+<<< @/public/presets/toml/pure-preset.toml

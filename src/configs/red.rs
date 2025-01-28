@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct RedConfig<'a> {
     pub format: &'a str,
@@ -13,7 +18,7 @@ pub struct RedConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for RedConfig<'a> {
+impl Default for RedConfig<'_> {
     fn default() -> Self {
         RedConfig {
             format: "via [$symbol($version )]($style)",

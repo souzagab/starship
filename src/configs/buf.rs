@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct BufConfig<'a> {
     pub format: &'a str,
@@ -13,12 +18,12 @@ pub struct BufConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for BufConfig<'a> {
+impl Default for BufConfig<'_> {
     fn default() -> Self {
         BufConfig {
-            format: "with [$symbol ($version)]($style)",
+            format: "with [$symbol($version )]($style)",
             version_format: "v${raw}",
-            symbol: "",
+            symbol: "🐃 ",
             style: "bold blue",
             disabled: false,
             detect_extensions: vec![],

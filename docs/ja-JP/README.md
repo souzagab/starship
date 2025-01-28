@@ -1,32 +1,48 @@
 ---
-home: true
-heroImage: /logo.svg
-heroText:
-tagline: シェル用の最小限の、非常に高速で、無限にカスタマイズ可能なプロンプトです！
-actionText: Get Started →
-actionLink: ./guide/
+layout: home
+hero:
+  image: /logo.svg
+  text:
+  tagline: シェル用の最小限の、非常に高速で、無限にカスタマイズ可能なプロンプトです！
+  actions:
+    - 
+      theme: brand
+      text: Get Started →
+      link: ./guide/
 features:
   - 
     title: 互換性優先
     details: 一般的なほとんどのOSの一般的なほとんどのシェル上で動作します。 あらゆるところで使用してください！
   - 
-    title: Rust 製
-    details: Rust の最高レベルの速度と安全性を用いることで、可能な限り高速かつ信頼性を高くしています。
+    title: Rust製
+    details: Rustの最高レベルの速度と安全性を用いることで、可能な限り高速かつ信頼性を高くしています。
   - 
     title: カスタマイズ可能
     details: それぞれの細かい点は好みにカスタマイズが出来るため、ミニマルにも多機能にも好きなようにプロンプトを設定することができます。
 footer: ISC Licensed | Copyright © 2019-present Starship Contributors
 #Used for the description meta tag, for SEO
 metaTitle: "Starship: Cross-Shell Prompt"
-description: Starship はミニマルで、非常に高速で、カスタマイズ性の高い、あらゆるシェルのためのプロンプトです！ ミニマルかつ洗練された形で、あなたに必要な情報を表示します。 Quick installation available for Bash, Fish, ZSH, Ion, Tcsh, Elvish, Nu, Xonsh, Cmd, and PowerShell.
+description: Starship はミニマルで、非常に高速で、カスタマイズ性の高い、あらゆるシェルのためのプロンプトです！ ミニマルかつ洗練された形で、あなたに必要な情報を表示します。 Bash, Fish, ZSH, Ion, Tcsh, Elvish, Nu, Xonsh, Cmd, PowerShellで簡単に利用できます。
 ---
 
-<div class="center">
-  <video class="demo-video" muted autoplay loop playsinline>
-    <source src="/demo.webm" type="video/webm">
-    <source src="/demo.mp4" type="video/mp4">
-  </video>
-</div>
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search)
+  if (urlParams.has('uwu') || urlParams.has('kawaii')) {
+    const img = document.querySelector('.VPHero .VPImage.image-src')
+    img.classList.add('uwu')
+    img.src = '/logo-uwu.png'
+    img.alt = 'Kawaii Starship Logo by @sawaratsuki1004'
+  }
+})
+</script>
+
+<video class="demo-video" muted autoplay loop playsinline>
+  <source src="/demo.webm" type="video/webm">
+  <source src="/demo.mp4" type="video/mp4">
+</video>
 
 ### 必要なもの
 
@@ -50,16 +66,16 @@ description: Starship はミニマルで、非常に高速で、カスタマイ�
 
    #### パッケージマネージャー経由でインストール
 
-   [ Homebrew ](https://brew.sh/)の場合：
+   [ Homebrew](https://brew.sh/)を使用する
 
    ```sh
    brew install starship
    ```
 
-   [ Scoop ](https://scoop.sh)の場合：
+   [Winget](https://github.com/microsoft/winget-cli)を使用する
 
    ```powershell
-   scoop install starship
+   winget install starship
    ```
 
 1. 初期化のためのスクリプトをシェルの設定ファイルに追加
@@ -120,7 +136,11 @@ description: Starship はミニマルで、非常に高速で、カスタマイ�
 
    #### Elvish
 
-   ::: warning elvish v0.17以上のみサポートされています。 :::
+   ::: warning
+
+   elvish v0.18 以降のみサポートされます。
+
+   :::
 
    `~/.elvish/rc.elv` の最後に以下を追記してください。
 
@@ -144,19 +164,19 @@ description: Starship はミニマルで、非常に高速で、カスタマイ�
 
    #### Nushell
 
-   ::: warning This will change in the future. Only Nushell v0.60+ is supported. ::: Run the following:
+   ::: warning
+
+   これは将来的に変更される可能性があります。 Only Nushell v0.96+ is supported.
+
+   :::
+
+   Add the following to the end of your Nushell configuration (find it by running `$nu.config-path` in Nushell):
+
    ```sh
-   mkdir ~/.cache/starship
-   starship init nu | save ~/.cache/starship/init.nu
+   mkdir ($nu.data-dir | path join "vendor/autoload")
+   starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
    ```
 
-   And add the following to the end of your Nushell configuration (find it by running `$nu.config-path`):
-
-   ```sh
-   mkdir ~/.cache/starship
-   starship init nu | save ~/.cache/starship/init.nu
-   source ~/.cache/starship/init.nu
-   ```
 
    #### Xonsh
 
@@ -171,7 +191,7 @@ description: Starship はミニマルで、非常に高速で、カスタマイ�
 
    #### Cmd
 
-   You need to use [Clink](https://chrisant996.github.io/clink/clink.html) (v1.2.30+) with Cmd. Add the following to a file `starship.lua` and place this file in Clink scripts directory:
+   [Clink](https://chrisant996.github.io/clink/clink.html) (v1.2.30+) コマンドを使用する必要があります。 以下をファイル `starship.lua` に追加し、Clinkスクリプトディレクトリに配置します:
 
    ```lua
    -- starship.lua

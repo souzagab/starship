@@ -1,4 +1,4 @@
-[Return to Presets](./README.md#plain-text-symbols)
+[Return to Presets](./#plain-text-symbols)
 
 ## Plain Text Symbols Preset
 
@@ -9,6 +9,10 @@ don't have access to Unicode.
 
 ### Configuration
 
-[Click to download TOML](/presets/toml/plain-text-symbols.toml)
+```sh
+starship preset plain-text-symbols -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/plain-text-symbols.toml
+[Click to download TOML](/presets/toml/plain-text-symbols.toml){download}
+
+<<< @/public/presets/toml/plain-text-symbols.toml

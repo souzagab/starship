@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct CondaConfig<'a> {
     pub truncation_length: usize,
@@ -11,7 +16,7 @@ pub struct CondaConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for CondaConfig<'a> {
+impl Default for CondaConfig<'_> {
     fn default() -> Self {
         CondaConfig {
             truncation_length: 1,

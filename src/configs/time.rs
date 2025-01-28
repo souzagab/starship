@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct TimeConfig<'a> {
     pub format: &'a str,
@@ -13,7 +18,7 @@ pub struct TimeConfig<'a> {
     pub time_range: &'a str,
 }
 
-impl<'a> Default for TimeConfig<'a> {
+impl Default for TimeConfig<'_> {
     fn default() -> Self {
         TimeConfig {
             format: "at [$time]($style) ",

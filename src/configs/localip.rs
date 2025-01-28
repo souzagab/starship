@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct LocalipConfig<'a> {
     pub ssh_only: bool,
@@ -9,7 +14,7 @@ pub struct LocalipConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for LocalipConfig<'a> {
+impl Default for LocalipConfig<'_> {
     fn default() -> Self {
         LocalipConfig {
             ssh_only: true,

@@ -1,4 +1,4 @@
-[Return to Presets](./README.md#bracketed-segments)
+[Return to Presets](./#bracketed-segments)
 
 # Bracketed Segments Preset
 
@@ -9,6 +9,10 @@ in brackets instead of using the default Starship wording ("via", "on", etc.).
 
 ### Configuration
 
-[Click to download TOML](/presets/toml/bracketed-segments.toml)
+```sh
+starship preset bracketed-segments -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/bracketed-segments.toml
+[Click to download TOML](/presets/toml/bracketed-segments.toml){download}
+
+<<< @/public/presets/toml/bracketed-segments.toml

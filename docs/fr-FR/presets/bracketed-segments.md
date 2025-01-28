@@ -1,4 +1,4 @@
-[Retourner aux préréglages](./README.md#bracketed-segments)
+[Retourner aux préréglages](./#bracketed-segments)
 
 # Préréglage Segments entre crochets
 
@@ -8,6 +8,10 @@ Ce préréglage modifie le format de tous les modules intégrés pour afficher l
 
 ### Configuration
 
-[Cliquez pour télécharger le TOML](/presets/toml/bracketed-segments.toml)
+```sh
+starship preset bracketed-segments -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/bracketed-segments.toml
+[Click to download TOML](/presets/toml/bracketed-segments.toml){download}
+
+<<< @/public/presets/toml/bracketed-segments.toml

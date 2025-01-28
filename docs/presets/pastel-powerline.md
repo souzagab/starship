@@ -1,4 +1,4 @@
-[Return to Presets](./README.md#pastel-powerline)
+[Return to Presets](./#pastel-powerline)
 
 # Pastel Powerline Preset
 
@@ -13,6 +13,10 @@ It also shows how path substitution works in starship.
 
 ### Configuration
 
-[Click to download TOML](/presets/toml/pastel-powerline.toml)
+```sh
+starship preset pastel-powerline -o ~/.config/starship.toml
+```
 
-<<< @/.vuepress/public/presets/toml/pastel-powerline.toml
+[Click to download TOML](/presets/toml/pastel-powerline.toml){download}
+
+<<< @/public/presets/toml/pastel-powerline.toml

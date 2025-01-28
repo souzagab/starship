@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct FillConfig<'a> {
     pub style: &'a str,
@@ -8,7 +13,7 @@ pub struct FillConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for FillConfig<'a> {
+impl Default for FillConfig<'_> {
     fn default() -> Self {
         FillConfig {
             style: "bold black",

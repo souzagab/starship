@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct KotlinConfig<'a> {
     pub format: &'a str,
@@ -14,7 +19,7 @@ pub struct KotlinConfig<'a> {
     pub detect_folders: Vec<&'a str>,
 }
 
-impl<'a> Default for KotlinConfig<'a> {
+impl Default for KotlinConfig<'_> {
     fn default() -> Self {
         KotlinConfig {
             format: "via [$symbol($version )]($style)",

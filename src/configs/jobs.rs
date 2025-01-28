@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct JobsConfig<'a> {
     pub threshold: i64,
@@ -12,7 +17,7 @@ pub struct JobsConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for JobsConfig<'a> {
+impl Default for JobsConfig<'_> {
     fn default() -> Self {
         JobsConfig {
             threshold: 1,

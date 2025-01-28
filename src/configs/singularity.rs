@@ -1,6 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize)]
+#[cfg_attr(
+    feature = "config-schema",
+    derive(schemars::JsonSchema),
+    schemars(deny_unknown_fields)
+)]
 #[serde(default)]
 pub struct SingularityConfig<'a> {
     pub symbol: &'a str,
@@ -9,7 +14,7 @@ pub struct SingularityConfig<'a> {
     pub disabled: bool,
 }
 
-impl<'a> Default for SingularityConfig<'a> {
+impl Default for SingularityConfig<'_> {
     fn default() -> Self {
         SingularityConfig {
             format: "[$symbol\\[$env\\]]($style) ",
